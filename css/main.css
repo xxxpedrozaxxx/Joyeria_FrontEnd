@@ -13,6 +13,10 @@ label[for="password"] {
     font-size: 16px;
 }
 
+label[for="email"] {
+    font-size: 16px;
+}
+
 .inicio_sesion {
     max-height: none;
     overflow: visible;
@@ -20,6 +24,18 @@ label[for="password"] {
 
 @media (max-width: 600px) {
     .inicio_sesion {
+        max-height: 400px;
+        overflow: auto;
+    }
+} 
+
+.recuperacion {
+    max-height: none;
+    overflow: visible; 
+}
+
+@media (max-width: 600px) {
+    .recuperacion {
         max-height: 400px;
         overflow: auto;
     }
