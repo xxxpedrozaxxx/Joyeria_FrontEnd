@@ -40,3 +40,27 @@ label[for="email"] {
         overflow: auto;
     }
 } 
+
+.recuperacion h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.confirmacion h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.recuperacion {
+    max-height: none;
+    overflow: visible;
+}
+
+@media (max-width: 600px) {
+    .confirmacion {
+        max-height: 400px;
+        overflow: auto;
+    }
+}
