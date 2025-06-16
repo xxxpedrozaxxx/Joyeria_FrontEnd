@@ -59,6 +59,12 @@ label[for="email"] {
     margin-bottom: 20px;
 }
 
+.credenciales h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 .confirmacion {
     max-height: none;
     overflow: visible;
@@ -83,3 +89,14 @@ label[for="email"] {
     }
 }
 
+.credenciales {
+    max-height: none;
+    overflow: visible;
+}
+
+@media (max-width: 600px) {
+    .credenciales {
+        max-height: 400px;
+        overflow: auto;
+    }
+}
