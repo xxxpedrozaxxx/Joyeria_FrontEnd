@@ -65,6 +65,12 @@ label[for="email"] {
     margin-bottom: 20px;
 }
 
+.registrado h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 .confirmacion {
     max-height: none;
     overflow: visible;
@@ -96,6 +102,18 @@ label[for="email"] {
 
 @media (max-width: 600px) {
     .credenciales {
+        max-height: 400px;
+        overflow: auto;
+    }
+}
+
+.registrado {
+    max-height: none;
+    overflow: visible;
+}
+
+@media (max-width: 600px) {
+    .registrado {
         max-height: 400px;
         overflow: auto;
     }
