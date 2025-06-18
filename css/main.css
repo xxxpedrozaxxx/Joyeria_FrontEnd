@@ -1,8 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+    padding-top: 10px;
 } 
 
 label[for="user"] {
@@ -117,4 +116,14 @@ label[for="email"] {
         max-height: 400px;
         overflow: auto;
     }
+}
+
+footer {
+    margin: 20px 0 10px 0;
+    padding: 8px 0;
+    width: 100%;
+    background-color: lightgray;
+    color: black;
+    text-align: center;
+    box-sizing: border-box;
 }
