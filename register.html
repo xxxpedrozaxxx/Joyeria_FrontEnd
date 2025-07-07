@@ -21,7 +21,7 @@
 
         <!-- Formulario de registro -->
         <div class="center-align" style="margin-top: 30px; margin-bottom: 20px;">
-            <form action="#" method="post">
+            <form action="#" method="post" onsubmit="return validarDatos()">
                 <div class="input-field">
                     <i class="material-icons prefix">person</i>
                     <input type="text" id="name" name="name" required>
@@ -42,7 +42,7 @@
 
                 <div class="input-field">
                     <i class="material-icons prefix">phone</i>
-                    <input type="text" id="telephone" name="telephone" required>
+                    <input type="text" id="telephone" name="telephone">
                     <label style="color: black;" for="telephone"> Teléfono </label>
                 </div>
 
@@ -54,7 +54,7 @@
 
                 <p> Al crear tu cuenta, estás aceptando el tratamiento de datos conforme a la política de Ley de Datos vigente. </p>
 
-                <input type="submit" value="Siguiente" onclick="window.location.href='credentials.html'">
+                <input type="submit" value="Siguiente">
             </form>
         </div>
 
@@ -70,8 +70,6 @@
        &copy; 2025 Joyería Los Álcazares. Todos los derechos reservados.
     </footer>
 
-     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
 </body>
 </html>
