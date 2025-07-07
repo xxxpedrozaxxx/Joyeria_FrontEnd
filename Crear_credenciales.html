@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea tus credenciales - Joyería Los Alcazares</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <main class="form-container">
+        <h2>Crea tus credenciales</h2>
+        <p class="subtitle">Crea un nuevo usuario y una nueva contraseña.</p>
+        
+        <form action="registro_exitoso.html" method="get"> <!-- Al final, redirige a la pantalla de éxito -->
+            <div class="input-group">
+                <label for="usuario">Crea tu nuevo usuario</label>
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu nuevo usuario" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Crea una nueva contraseña</label>
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" id="password" name="password" required>
+                <i class="fa-solid fa-eye-slash password-toggle-icon"></i>
+            </div>
+            
+            <div class="input-group">
+                <label for="password-confirm">Confirma tu nueva contraseña</label>
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" id="password-confirm" name="password-confirm" required>
+                 <i class="fa-solid fa-eye-slash password-toggle-icon"></i>
+            </div>
+            
+            <div class="toggle-switch">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <label for="recordarme">Recordarme</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrarme</button>
+
+            <div class="social-login mt-2">
+                 <a href="#" class="btn btn-secondary mb-2"><i class="fa-brands fa-google"></i> Identificarme con Google</a>
+                 <a href="#" class="btn btn-secondary"><i class="fa-brands fa-facebook-f"></i> Identificarme con Facebook</a>
+            </div>
+        </form>
+    </main>
+    
+    <footer>
+        <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

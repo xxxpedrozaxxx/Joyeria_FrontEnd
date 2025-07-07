@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Joyería Los Alcazares</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <!-- Es una buena práctica repetir el header en todas las páginas -->
+         <div class="header-left">
+            <div class="logo-placeholder"><i class="fa-regular fa-gem"></i></div>
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar">
+            </div>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Tienda</a> <!-- ¡Link a nuestra nueva página! -->
+                <a href="registro.html">Registrarse</a>
+                <a href="inicio_sesion.html">Iniciar Sesión</a>
+                <a href="#">Contacto</a>
+            </nav>
+            <a href="#" class="btn-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Tu Carrito
+            </a>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <div class="catalog-header">
+            <h2>Nuestros Productos</h2>
+            <select name="sort-by">
+                <option value="default">Ordenar por</option>
+                <option value="price-asc">Precio: Menor a Mayor</option>
+                <option value="price-desc">Precio: Mayor a Menor</option>
+                <option value="popularity">Popularidad</option>
+            </select>
+        </div>
+        
+        <div class="catalog-layout">
+            <!-- Columna de Filtros -->
+            <aside class="filter-sidebar">
+                <div class="filter-group">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><label><input type="checkbox"> Anillos</label></li>
+                        <li><label><input type="checkbox"> Collares</label></li>
+                        <li><label><input type="checkbox"> Aritos</label></li>
+                        <li><label><input type="checkbox"> Pulseras</label></li>
+                        <li><label><input type="checkbox"> Relojes</label></li>
+                    </ul>
+                </div>
+                
+                <div class="filter-group">
+                    <h4>Rango de Precio</h4>
+                    <input type="range" min="10000" max="500000" value="500000">
+                    <div class="price-range-display">$10.000 - $500.000</div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Material</h4>
+                    <ul>
+                        <li><label><input type="checkbox"> Oro</label></li>
+                        <li><label><input type="checkbox"> Plata</label></li>
+                        <li><label><input type="checkbox"> Bronce</label></li>
+                        <li><label><input type="checkbox"> Diamantes</label></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Columna de Productos -->
+            <section class="product-listing">
+                <!-- Aquí repetiríamos las tarjetas de productos -->
+                <!-- Producto 1 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>ANILLO DE DIAMANTES</h3><p>$200.000</p></div></div></a>
+                <!-- Producto 2 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>ANILLO DE PLATA</h3><p>$289.900</p></div></div></a>
+                <!-- Producto 3 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>CADENAS DE BRONCE</h3><p>$87.000</p></div></div></a>
+                <!-- Producto 4 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>ARITOS EN ESPIRAL</h3><p>$20.000</p></div></div></a>
+                <!-- Producto 5 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>MANILLA AMARILLA</h3><p>$16.000</p></div></div></a>
+                <!-- Producto 6 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>ANILLO DE BRONCE</h3><p>$125.000</p></div></div></a>
+                 <!-- Producto 7 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>RELOJ ROSA</h3><p>$52.200</p></div></div></a>
+                <!-- Producto 8 -->
+                <a href="producto.html" style="text-decoration:none; color:inherit;"><div class="product-card"><div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div><div class="product-card-info"><h3>COLLAR DE PERLAS</h3><p>$150.000</p></div></div></a>
+            </section>
+        </div>
+
+        <!-- Paginación -->
+        <nav class="pagination">
+            <a href="#">«</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">»</a>
+        </nav>
+    </main>
+
+    <footer>
+        <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
