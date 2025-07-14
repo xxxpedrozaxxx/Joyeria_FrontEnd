@@ -101,6 +101,41 @@ body {
     cursor: pointer;
 }
 
+.input-group .tooltip {
+    position: absolute;
+    right: 140px;
+    top: 15%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #C1A775;
+    font-size: 1.2em;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+/* Contenido del Tooltip o data-tooltip */
+.input-group .tooltip:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-card);
+    color: var(--text-secondary);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+}
+
+.input-group .tooltip:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 /* --- Estilos para Botones --- */
 .btn {
