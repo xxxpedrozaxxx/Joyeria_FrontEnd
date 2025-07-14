@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Joyería Los Alcazares</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
       <header class="site-header">
         <!-- Es una buena práctica repetir el header en todas las páginas -->
          <div class="header-left">
@@ -24,14 +32,6 @@
         </div>
     </header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras - Joyería Los Alcazares</title>
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
     <div class="page-container" style="padding-top:20px; padding-bottom:20px;">
         <header class="cart-header">
             <h1>Tu Carrito de Compras</h1>
@@ -48,9 +48,9 @@
                         <button class="item-remove">Eliminar</button>
                     </div>
                     <div class="item-quantity">
-                        <button class="quantity-btn">-</button><input type="text" value="1" readonly><button class="quantity-btn">+</button>
+                        <button class="quantity-btn btn-bajar">-</button><input type="text" class="cantidad" value="1" readonly><button class="quantity-btn btn-aumentar">+</button>
                     </div>
-                    <p class="item-price">$200.000</p>
+                    <p class="item-price precio" data-precio="200000"> $200.000 </p>
                 </div>
                 <!-- Artículo de ejemplo 2 -->
                 <div class="cart-item">
@@ -61,9 +61,9 @@
                         <button class="item-remove">Eliminar</button>
                     </div>
                     <div class="item-quantity">
-                        <button class="quantity-btn">-</button><input type="text" value="2" readonly><button class="quantity-btn">+</button>
+                        <button class="quantity-btn btn-bajar">-</button><input type="text" class="cantidad" value="2" readonly><button class="quantity-btn btn-aumentar">+</button>
                     </div>
-                    <p class="item-price">$174.000</p>
+                    <p class="item-price precio" data-precio="200000">$174.000</p>
                 </div>
             </div>
 
@@ -81,5 +81,7 @@
     <footer>
         <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>
