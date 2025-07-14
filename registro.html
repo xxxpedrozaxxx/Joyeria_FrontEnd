@@ -7,34 +7,34 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body id="registro">
     <main class="form-container">
         <h2>Registrarse</h2>
-        <form action="crear_credenciales.html" method="get">
+        <form action="crear_credenciales.html" method="get" class="formRegistro">
             <div class="input-group">
-                <label for="nombre">Nombre(s)</label>
+                <label for="nombreRegistro">Nombre(s)</label>
                 <i class="fa-solid fa-user input-icon"></i>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingresa aquí tu nombre" required>
+                <input type="text" id="nombreRegistro" name="nombre" placeholder="Ingresa aquí tu nombre" required>
             </div>
             <div class="input-group">
-                <label for="apellido">Apellido(s)</label>
+                <label for="apellidoRegistro">Apellido(s)</label>
                 <i class="fa-solid fa-user input-icon"></i>
-                <input type="text" id="apellido" name="apellido" placeholder="Ingresa aquí tus apellidos" required>
+                <input type="text" id="apellidoRegistro" name="apellido" placeholder="Ingresa aquí tus apellidos" required>
             </div>
             <div class="input-group">
-                <label for="direccion">Dirección</label>
+                <label for="direccionRegistro">Dirección</label>
                 <i class="fa-solid fa-house input-icon"></i>
-                <input type="text" id="direccion" name="direccion" placeholder="Ingresa aquí tu dirección" required>
+                <input type="text" id="direccionRegistro" name="direccion" placeholder="Ingresa aquí tu dirección" required>
             </div>
             <div class="input-group">
-                <label for="telefono">Teléfono</label>
+                <label for="telefonoRegistro">Teléfono</label>
                 <i class="fa-solid fa-phone input-icon"></i>
-                <input type="tel" id="telefono" name="telefono" placeholder="Ingresa aquí tu teléfono" required>
+                <input type="tel" id="telefonoRegistro" name="telefono" placeholder="Ingresa aquí tu teléfono" required>
             </div>
             <div class="input-group">
-                <label for="email">Correo electrónico</label>
+                <label for="emailRegistro">Correo electrónico</label>
                 <i class="fa-solid fa-envelope input-icon"></i>
-                <input type="email" id="email" name="email" placeholder="Ingresa aquí tu Email" required>
+                <input type="email" id="emailRegistro" name="email" placeholder="Ingresa aquí tu Email" required>
             </div>
             <p class="subtitle" style="font-size: 0.8em; text-align: left; margin-top: 15px;">
                 Al crear tu cuenta, aceptas la política de tratamiento de datos.
@@ -48,5 +48,7 @@
     <footer>
         <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>
