@@ -106,14 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
 const formRecuperacion = document.querySelector(".formRecuperacion");
 const emailRecuperacion = document.querySelector("#emailRecuperacion");
 
-formRecuperacion.addEventListener("submit", function(evt) {
-evt.preventDefault();
+formRecuperacion?.addEventListener("submit", function(evt) {
+  evt.preventDefault();
 
-if(emailRecuperacion && emailRecuperacion.value) {
-localStorage.setItem("emailUsuario", emailRecuperacion.value);
-window.location.href = "confirmacion.html";
-}
-
+  if (emailRecuperacion && emailRecuperacion.value) {
+    localStorage.setItem("emailUsuario", emailRecuperacion.value);
+    window.location.href = "confirmacion.html";
+  }
 });
 });
 
@@ -127,67 +126,144 @@ confirmacionEmail.textContent = emailGuardado;
 
 
 // === 04. Aumentar Items de Carrito y Sumar a Precio Total
-document.addEventListener('DOMContentLoaded', () => { 
+const contenedorCatalogo = document.querySelector(".catalogo");
+const contenedorProductos = document.querySelector(".cart-items");
 
-  const contenedorProductos = document.querySelector(".cart-items");
+// === 1. Cargar carrito desde localStorage al iniciar
+document.addEventListener('DOMContentLoaded', () => {
+  const productosGuardados = localStorage.getItem("productosCarrito");
+  if (!productosGuardados) return;
 
-  contenedorProductos.addEventListener("click", (e) => {
+  const productos = JSON.parse(productosGuardados);
+  mostrarProductos(productos);
+  actualizarResumenTotal();
+});
 
-    const producto = e.target.closest('.cart-item');
-    if (!producto) return; // por seguridad
+// === 2. Añadir al carrito ===
+contenedorCatalogo?.addEventListener("click", (e) => {
+  if (!e.target.matches(".btn")) return;
 
-    if (e.target.matches(".btn-bajar") || e.target.matches(".btn-aumentar")) {
-      const cantidadInput = producto.querySelector(".cantidad");
-      const precioElemento = producto.querySelector(".precio");
-      
-      let cantidadUnitaria = Number(cantidadInput.value);
-      const precioUnitario = Number(precioElemento.dataset.precio);
+  const producto = e.target.closest(".product-details");
+  if (!producto) return console.warn("No se encontró .product-details");
 
-      if (e.target.matches(".btn-bajar") && cantidadUnitaria > 1) {
-        cantidadUnitaria--;
-      } else if (e.target.matches(".btn-aumentar")) {
-        cantidadUnitaria++;
-      }
+  const nombreElem = producto.querySelector(".nombre");
+  const referenciaElem = producto.querySelector(".referencia");
+  const precioElem = producto.querySelector(".product-price");
 
-      cantidadInput.value = cantidadUnitaria;
-      precioElemento.textContent = "$" + (precioUnitario * cantidadUnitaria).toLocaleString("es-CO");
-
-      actualizarResumenTotal();
-
-    } else if (e.target.matches(".item-remove")) {
-      producto.remove();
-      actualizarResumenTotal();
-    }
-  });
-
-  function actualizarResumenTotal() {
-    const productos = document.querySelectorAll(".cart-item");
-    let total = 0;
-
-    productos.forEach(producto => {
-      const cantidad = Number(producto.querySelector(".cantidad").value);
-      const precioUnitario = Number(producto.querySelector(".precio").dataset.precio);
-      total += precioUnitario * cantidad;
-    });
-
-    console.log('Total calculado:', total);
-
-    const contenedorTotal = document.querySelector(".cart-summary");
-    if (!contenedorTotal) return;
-
-    const totalElemento = contenedorTotal.querySelector(".totalElemento");
-    const envioElemento = contenedorTotal.querySelector(".envio");
-    const pedidoTotal = contenedorTotal.querySelector(".pedidoTotal");
-
-    if (!totalElemento || !envioElemento || !pedidoTotal) return;
-
-    const envioTexto = envioElemento.textContent.replace(/[^\d]/g, "");
-    const envio = Number(envioTexto);
-
-    totalElemento.textContent = "$" + total.toLocaleString("es-CO");
-    pedidoTotal.textContent = "$" + (total + envio).toLocaleString("es-CO");
+  if (!nombreElem || !referenciaElem || !precioElem) {
+    console.error("Faltan datos del producto.");
+    return;
   }
 
-})
+  const nombre = nombreElem.textContent.trim();
+  const referencia = referenciaElem.textContent.trim();
+  const precioTexto = precioElem.textContent.trim();
+  const priceNumber = Number(precioTexto.replace(/[^\d]/g, ""));
 
+  if (!nombre || !referencia || isNaN(priceNumber)) {
+    console.error("Datos del producto inválidos");
+    return;
+  }
+
+  const productoObjeto = {
+    nombre,
+    referencia,
+    precio: priceNumber,
+    cantidad: 1,
+  };
+
+  let productos = JSON.parse(localStorage.getItem("productosCarrito")) || [];
+
+  const indice = productos.findIndex(p => p.referencia === referencia);
+  if (indice !== -1) {
+    productos[indice].cantidad += 1;
+  } else {
+    productos.push(productoObjeto);
+  }
+
+  localStorage.setItem("productosCarrito", JSON.stringify(productos));
+  mostrarProductos(productos);
+  actualizarResumenTotal();
+});
+
+// === 3. Mostrar productos en el carrito
+function mostrarProductos(productos) {
+  contenedorProductos.innerHTML = "";
+
+  productos.forEach(({ nombre, referencia, precio, cantidad }) => {
+    const div = document.createElement("div");
+    div.classList.add("cart-item");
+
+    div.innerHTML = `
+      <p class="item-name">${nombre}</p>
+      <p class="item-ref">${referencia}</p>
+      <div class="acciones-carrito">
+        <button class="btn-bajar">-</button>
+        <input type="text" class="cantidad" value="${cantidad}" readonly>
+        <button class="quantity-btn btn-aumentar">+</button>
+      </div>
+      <p class="precio" data-precio="${precio}">$${(precio * cantidad).toLocaleString("es-CO")}</p>
+    `;
+
+    contenedorProductos.appendChild(div);
+  });
+}
+
+// === 4. Aumentar / Disminuir cantidad en carrito
+contenedorProductos.addEventListener("click", (e) => {
+  if (!e.target.matches(".btn-bajar") && !e.target.matches(".btn-aumentar")) return;
+
+  const cartItem = e.target.closest(".cart-item");
+  const referencia = cartItem.querySelector(".item-ref").textContent;
+  const cantidadInput = cartItem.querySelector(".cantidad");
+  const precioElemento = cartItem.querySelector(".precio");
+  const precioUnitario = Number(precioElemento.dataset.precio);
+
+  let cantidad = Number(cantidadInput.value);
+  if (e.target.matches(".btn-bajar") && cantidad > 1) {
+    cantidad--;
+  } else if (e.target.matches(".btn-aumentar")) {
+    cantidad++;
+  }
+
+  cantidadInput.value = cantidad;
+  precioElemento.textContent = "$" + (precioUnitario * cantidad).toLocaleString("es-CO");
+
+  // Actualizar localStorage
+  let productos = JSON.parse(localStorage.getItem("productosCarrito")) || [];
+  const index = productos.findIndex(p => p.referencia === referencia);
+  if (index !== -1) {
+    productos[index].cantidad = cantidad;
+    localStorage.setItem("productosCarrito", JSON.stringify(productos));
+  }
+
+  actualizarResumenTotal();
+});
+
+// === 5. Actualizar resumen total
+function actualizarResumenTotal() {
+  const productosDOM = document.querySelectorAll(".cart-item");
+  let total = 0;
+
+  productosDOM.forEach(producto => {
+    const cantidad = Number(producto.querySelector(".cantidad").value);
+    const precioUnitario = Number(producto.querySelector(".precio").dataset.precio);
+    total += precioUnitario * cantidad;
+  });
+
+  const contenedorTotal = document.querySelector(".cart-summary");
+  if (!contenedorTotal) return;
+
+  const totalElemento = contenedorTotal.querySelector(".totalElemento");
+  const envioElemento = contenedorTotal.querySelector(".envio");
+  const pedidoTotal = contenedorTotal.querySelector(".pedidoTotal");
+
+  if (!totalElemento || !envioElemento || !pedidoTotal) return;
+
+  const envioTexto = envioElemento.textContent.replace(/[^\d]/g, "");
+  const envio = Number(envioTexto);
+
+  totalElemento.textContent = "$" + total.toLocaleString("es-CO");
+  pedidoTotal.textContent = "$" + (total + envio).toLocaleString("es-CO");
+}
 // =====
