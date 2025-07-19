@@ -24,9 +24,9 @@
                 <a href="catalogo.html">Tienda</a>
                 <a href="registro.html">Registrarse</a>
                 <a href="inicio_sesion.html">Iniciar Sesión</a>
-                <a href="#">Contacto</a>
+                <a href="contacto.html">Contacto</a>
             </nav>
-            <a href="#" class="btn-cart">
+            <a href="carrito.html" class="btn-cart">
                 <i class="fa-solid fa-cart-shopping"></i>
                 Tu Carrito
             </a>
@@ -34,7 +34,7 @@
     </header>
 
     <main class="page-container">
-        <section class="product-detail-grid">
+        <section class="product-detail-grid catalogo">
             <div class="product-gallery">
                 <div class="main-image"><i class="fa-regular fa-image"></i></div>
                 <div class="thumbnail-images">
@@ -45,7 +45,8 @@
             </div>
 
             <div class="product-details">
-                <h2>Anillo de Diamantes</h2>
+                <h2 class="nombre">Anillo de Diamantes</h2>
+                <p> ID de Producto: <span class="referencia"> 20932F </span> </p>
                 <div class="star-rating">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -64,7 +65,7 @@
                     Este anillo tiene los diamantes de mejor calidad, y de mejor material. Cómpralo con envío hasta la puerta de tu casa, y con garantía de devolución.
                 </p>
                 <div class="actions">
-                    <a href="#" class="btn btn-primary">Añadir al Carrito</a>
+                    <button class="btn btn-primary">Añadir al Carrito </button>
                     <i class="fa-regular fa-heart wishlist-icon"></i>
                 </div>
             </div>
@@ -74,11 +75,11 @@
             <h2 class="section-title">Productos Similares</h2>
             <div class="product-grid">
                 <!-- Aquí irían 5 product-card como en el index.html -->
-                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>CADENAS DE BRONCE</h3><p>$87.000</p></div> </div>
-                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>ARITOS EN ESPIRAL</h3><p>$20.000</p></div> </div>
-                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>MANILLA AMARILLA</h3><p>$16.000</p></div> </div>
-                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>ANILLO DE BRONCE</h3><p>$125.000</p></div> </div>
-                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>RELOJ ROSA</h3><p>$52.200</p></div> </div>
+                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>CADENAS DE BRONCE</h3><p> ID Producto: </p> <span class="referencia">20933G</span><p>$87.000</p></div> </div>
+                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>ARITOS EN ESPIRAL</h3><p> ID Producto: </p> <span class="referencia">20934H</span><p>$20.000</p></div> </div>
+                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>MANILLA AMARILLA</h3><p> ID Producto: </p> <span class="referencia">20935I</span><p>$16.000</p></div> </div>
+                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>ANILLO DE BRONCE</h3> <p> ID Producto: </p> <span class="referencia">20936J</span><p>$125.000</p></div> </div>
+                <div class="product-card"> <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div> <div class="product-card-info"><h3>RELOJ ROSA</h3><p> ID Producto: </p> <span class="referencia">20937K</span><p>$52.200</p></div> </div>
             </div>
         </section>
     </main>
@@ -87,5 +88,6 @@
         <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
     </footer>
 
+    <script src="./js/index.js"></script>
 </body>
 </html>
