@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Joyería Los Alcazares</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+      <header class="site-header">
+        <!-- Es una buena práctica repetir el header en todas las páginas -->
+         <div class="header-left">
+            <div class="logo-placeholder"><i class="fa-regular fa-gem"></i></div>
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar">
+            </div>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Tienda</a> <!-- ¡Link a nuestra nueva página! -->
+                
+                <a href="inicio_sesion.html">Iniciar Sesión</a>
+                <a href="#">Contacto</a>
+            </nav>
+            <a href="carrito.html" class="btn-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Tu Carrito
+            </a>
+        </div>
+    </header>
+
+    <div class="page-container" style="padding-top:20px; padding-bottom:20px;">
+        <header class="cart-header">
+            <h1>Tu Carrito de Compras</h1>
+        </header>
+
+        <main class="cart-content">
+            <div class="cart-items">
+                <!-- Artículo de ejemplo 1 -->
+                <div class="cart-item">
+                    <img src="images/anillo_placeholder.png" alt="Anillo" class="item-image">
+                    <div class="item-details">
+                        <p class="item-name">Anillo de Diamantes</p>
+                        <p class="item-ref">REF: #AD12345</p>
+                        <button class="item-remove">Eliminar</button>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn btn-bajar">-</button><input type="text" class="cantidad" value="1" readonly><button class="quantity-btn btn-aumentar">+</button>
+                    </div>
+                    <p class="item-price precio" data-precio="200000"> $200.000 </p>
+                </div>
+                <!-- Artículo de ejemplo 2 -->
+                <div class="cart-item">
+                    <img src="images/cadena_placeholder.png" alt="Cadena" class="item-image">
+                    <div class="item-details">
+                        <p class="item-name">Cadena de Bronce</p>
+                        <p class="item-ref">REF: #CB67890</p>
+                        <button class="item-remove">Eliminar</button>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn btn-bajar">-</button><input type="text" class="cantidad" value="2" readonly><button class="quantity-btn btn-aumentar">+</button>
+                    </div>
+                    <p class="item-price precio" data-precio="200000">$174.000</p>
+                </div>
+            </div>
+
+            <aside class="cart-summary">
+                <h3>Resumen de la orden</h3>
+                <div class="summary-row"><span>Subtotal</span><span>$374.000</span></div>
+                <div class="summary-row"><span>Envío</span><span>$12.000</span></div>
+                <hr>
+                <div class="summary-row total"><span>Total</span><span>$386.000</span></div>
+                <a href="#" class="btn btn-primary">Proceder al Pago</a>
+                <a href="index.html" class="btn btn-secondary mt-2">Seguir Comprando</a>
+            </aside>
+        </main>
+    </div>
+    <footer>
+        <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
