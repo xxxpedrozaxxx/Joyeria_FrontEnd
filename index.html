@@ -1,82 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyería Los Alcazares - Inicio</title>
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
-    <header class="site-header">
-        <div class="header-left">
-            <div class="logo-placeholder"><i class="fa-regular fa-gem"></i></div>
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Buscar">
-            </div>
-        </div>
-        <div class="header-right">
-            <nav class="main-nav">
-                <a href="index.html">Inicio</a>
-                <a href="catalogo.html">Tienda</a>
-                
-                <a href="inicio_sesion.html">Iniciar Sesión</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-            <a href="carrito.html" class="btn-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                Tu Carrito
-            </a>
-        </div>
-    </header>
-
-    <main class="page-container">
-        <section class="hero-section">
-            <h1>Joyería Los Alcazares</h1>
-            <!-- ====== CAMBIO AQUÍ ====== -->
-            <a href="catalogo.html" class="btn btn-primary" style="width: auto; padding: 15px 30px;">¡Compra Ahora!</a>
-        </section>
-
-        <section class="product-section">
-            <!-- ====== CAMBIO AQUÍ (MEJORA OPCIONAL) ====== -->
-            <a href="catalogo.html" style="text-decoration: none; color: inherit;">
-                <h2 class="section-title">Productos más vendidos</h2>
-            </a>
-
-            <div class="product-carousel">
-                <i class="fa-solid fa-chevron-left carousel-arrow"></i>
-                <div class="product-grid">
-                    <!-- Producto 1 -->
-                    <a href="producto.html" style="text-decoration:none; color:inherit;">
-                        <div class="product-card">
-                            <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div>
-                            <div class="product-card-info">
-                                <h3>ANILLO DE DIAMANTES</h3>
-                                <p>$200.000</p>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Producto 2 -->
-                     <a href="producto.html" style="text-decoration:none; color:inherit;">
-                        <div class="product-card">
-                            <div class="product-image-placeholder"><i class="fa-regular fa-image"></i></div>
-                            <div class="product-card-info">
-                                <h3>ANILLO DE PLATA</h3>
-                                <p>$289.900</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <i class="fa-solid fa-chevron-right carousel-arrow"></i>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
-    </footer>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joyería - Ecommerce</title>
+    <link rel="icon" href="/assets/joyeria-hero.jpg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
