@@ -3,50 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse - Joyería Los Alcazares</title>
+    <title>Recuperar Contraseña - Joyería Los Alcazares</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <main class="form-container">
-        <h2>Registrarse</h2>
-        <form action="crear_credenciales.html" method="get">
+        <h2>Recuperar contraseña</h2>
+        <p class="subtitle">Para recuperar tu contraseña, es necesario que ingreses tu usuario o correo electrónico previamente registrado.</p>
+        
+        <form action="confirmacion.html" method="get" class="formRecuperacion">
             <div class="input-group">
-                <label for="nombre">Nombre(s)</label>
+                <label for="usuario">Usuario</label>
                 <i class="fa-solid fa-user input-icon"></i>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingresa aquí tu nombre" required>
+                <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario">
             </div>
+
             <div class="input-group">
-                <label for="apellido">Apellido(s)</label>
-                <i class="fa-solid fa-user input-icon"></i>
-                <input type="text" id="apellido" name="apellido" placeholder="Ingresa aquí tus apellidos" required>
-            </div>
-            <div class="input-group">
-                <label for="direccion">Dirección</label>
-                <i class="fa-solid fa-house input-icon"></i>
-                <input type="text" id="direccion" name="direccion" placeholder="Ingresa aquí tu dirección" required>
-            </div>
-            <div class="input-group">
-                <label for="telefono">Teléfono</label>
-                <i class="fa-solid fa-phone input-icon"></i>
-                <input type="tel" id="telefono" name="telefono" placeholder="Ingresa aquí tu teléfono" required>
-            </div>
-            <div class="input-group">
-                <label for="email">Correo electrónico</label>
+                <label for="emailRecuperacion">Correo electrónico</label>
                 <i class="fa-solid fa-envelope input-icon"></i>
-                <input type="email" id="email" name="email" placeholder="Ingresa aquí tu Email" required>
+                <input type="email" id="emailRecuperacion" name="email" placeholder="Ingresa tu correo electrónico">
             </div>
-            <p class="subtitle" style="font-size: 0.8em; text-align: left; margin-top: 15px;">
-                Al crear tu cuenta, aceptas la política de tratamiento de datos.
-            </p>
-            <button type="submit" class="btn btn-primary">Siguiente</button>
+
+            <button type="submit" class="btn btn-accent">Recuperar contraseña</button>
         </form>
-        <div class="text-center mt-2">
-            <p>¿Ya tienes una cuenta? <a href="inicio_sesion.html">Inicia sesión</a></p>
-        </div>
     </main>
+    
     <footer>
-        <p>© 2025 Joyería Los Álcazares. Todos los derechos reservados.</p>
+        <p class="text-center">Joyería Los Alcazares.</p>
     </footer>
+
 </body>
 </html>
