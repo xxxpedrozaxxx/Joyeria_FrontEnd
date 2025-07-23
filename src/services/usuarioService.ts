@@ -6,4 +6,8 @@ export const createUsuario = (data: any) => api.post(endpoints.usuarios.base, da
 export const getUsuarioById = (id: string) => api.get(endpoints.usuarios.byId(id));
 export const updateUsuario = (id: string, data: any) => api.patch(endpoints.usuarios.byId(id), data);
 export const deleteUsuario = (id: string) => api.delete(endpoints.usuarios.byId(id));
-export const loginUsuario = (data: any) => api.post(endpoints.usuarios.login, data);
+export const loginUsuario = async (data: any) => {
+  const response = await api.post(endpoints.usuarios.login, data);
+  // Retornar la respuesta completa (token y usuario)
+  return response;
+};

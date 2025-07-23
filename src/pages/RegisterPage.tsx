@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { createUsuario } from '../services/usuarioService';
 
 type Step = 'form1' | 'form2' | 'email' | 'success';
 
@@ -32,7 +33,7 @@ const RegisterPage = () => {
   };
 
   // Paso 2: Credenciales
-  const handleForm2 = (e: React.FormEvent) => {
+  const handleForm2 = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!usuario || !password || !confirmPassword) {
       setError('Completa todos los campos');
@@ -43,8 +44,22 @@ const RegisterPage = () => {
       return;
     }
     setError('');
-    setStep('email');
-    // Aquí iría la lógica de registro real
+    // Enviar datos al backend
+    try {
+      const userPayload = {
+        nombre,
+        apellido: apellidos,
+        email,
+        password,
+        telefono,
+        rol: 'cliente',
+        usuario
+      };
+      await createUsuario(userPayload);
+      setStep('email');
+    } catch (err: any) {
+      setError(err?.response?.data?.message || 'Error al registrar usuario');
+    }
   };
 
   // Paso 3: Confirmar email

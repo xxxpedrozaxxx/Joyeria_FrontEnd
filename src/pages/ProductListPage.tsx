@@ -10,7 +10,7 @@ const ProductListPage = () => {
     const fetchProducts = async () => {
       try {
         const response = await getProductos();
-        setProducts(response.data);
+        setProducts(response.data as Product[]);
       } catch (error) {
         setProducts([]);
       }

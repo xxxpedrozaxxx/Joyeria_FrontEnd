@@ -1,3 +1,6 @@
+export const getCarritoByUsuario = (usuarioId: string) => api.get(endpoints.carritos.byUsuario(usuarioId));
+
+export const addItemToCarrito = (carritoId: string, data: { productoId: string; cantidad: number }) => api.post(endpoints.carritos.addItem(carritoId), data);
 import api from '../api/axios';
 import endpoints from '../api/endpoints';
 

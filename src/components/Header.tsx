@@ -19,17 +19,19 @@ const Header = () => {
       <nav className="flex items-center gap-6">
         <Link to="/" className="hover:text-blue-600">Inicio</Link>
         {location.pathname !== '/login' && (
-          user && user.isLoggedIn ? (
-            <button onClick={logout} className="hover:text-blue-600">Cerrar Sesión</button>
+          user ? (
+            <>
+              <button onClick={logout} className="hover:text-blue-600">Cerrar Sesión</button>
+              <Link to="/carrito" className="bg-gray-800 text-white px-4 py-2 rounded flex items-center gap-2">
+                <ShoppingCart className="w-5 h-5" />
+                <span>Tu Carrito</span>
+              </Link>
+            </>
           ) : (
             <Link to="/login" className="hover:text-blue-600">Iniciar Sesión</Link>
           )
         )}
         <Link to="/contact" className="hover:text-blue-600">Contacto</Link>
-        <Link to="/cart" className="bg-gray-800 text-white px-4 py-2 rounded flex items-center gap-2">
-          <ShoppingCart className="w-5 h-5" />
-          <span>Tu Carrito</span>
-        </Link>
       </nav>
     </header>
   );

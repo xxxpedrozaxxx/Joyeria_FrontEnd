@@ -1,60 +1,63 @@
 const endpoints = {
   usuarios: {
-    base: '/usuarios',
-    login: '/usuarios/login',
-    byId: (id: string) => `/usuarios/${id}`,
+    base: '/api/usuarios',
+    login: '/api/usuarios/login',
+    byId: (id: string) => `/api/usuarios/${id}`,
   },
   productos: {
-    base: '/productos',
-    byId: (id: string) => `/productos/${id}`,
+    base: '/api/productos',
+    byId: (id: string) => `/api/productos/${id}`,
   },
   resenas: {
-    base: '/resenas',
-    byId: (id: string) => `/resenas/${id}`,
+    base: '/api/resenas',
+    byId: (id: string) => `/api/resenas/${id}`,
   },
   proveedores: {
-    base: '/proveedores',
-    byId: (id: string) => `/proveedores/${id}`,
+    base: '/api/proveedores',
+    byId: (id: string) => `/api/proveedores/${id}`,
   },
   materiales: {
-    base: '/materiales',
-    byId: (id: string) => `/materiales/${id}`,
+    base: '/api/materiales',
+    byId: (id: string) => `/api/materiales/${id}`,
   },
   categorias: {
-    base: '/categorias',
-    byId: (id: string) => `/categorias/${id}`,
+    base: '/api/categorias',
+    byId: (id: string) => `/api/categorias/${id}`,
   },
   departamentos: {
-    base: '/departamentos',
-    byId: (id: string) => `/departamentos/${id}`,
+    base: '/api/departamentos',
+    byId: (id: string) => `/api/departamentos/${id}`,
   },
   municipios: {
-    base: '/municipios',
-    byCodigo: (codigo: string) => `/municipios/${codigo}`,
+    base: '/api/municipios',
+    byId: (id: string) => `/api/municipios/${id}`,
   },
   direcciones: {
-    base: '/direcciones',
-    byId: (id: string) => `/direcciones/${id}`,
+    base: '/api/direcciones',
+    byId: (id: string) => `/api/direcciones/${id}`,
   },
   carritos: {
-    base: '/carritos',
-    byId: (id: string) => `/carritos/${id}`,
+    base: '/api/carritos',
+    byId: (id: string) => `/api/carritos/${id}`,
+    byUsuario: (usuarioId: string) => `/api/carritos/usuario/${usuarioId}`,
+    addItem: (carritoId: string) => `/api/carritos/${carritoId}/items`,
+    removeItem: (carritoId: string, itemId: string) => `/api/carritos/${carritoId}/items/${itemId}`,
   },
   itemsCarrito: {
-    base: '/items-carrito',
-    byId: (id: string) => `/items-carrito/${id}`,
+    base: '/api/items-carrito',
+    byId: (id: string) => `/api/items-carrito/${id}`,
   },
   detallesPedido: {
-    base: '/detalles-pedido',
-    byId: (id: string) => `/detalles-pedido/${id}`,
+    base: '/api/detalles-pedido',
+    byId: (id: string) => `/api/detalles-pedido/${id}`,
   },
   pedidos: {
-    base: '/pedidos',
-    byId: (id: string) => `/pedidos/${id}`,
+    base: '/api/pedidos',
+    byId: (id: string) => `/api/pedidos/${id}`,
   },
   productoMateriales: {
-    base: '/producto-materiales',
-    byIds: (productoId: string, materialId: string) => `/producto-materiales/${productoId}/${materialId}`,
+    base: '/api/producto-materiales',
+    byId: (id: string) => `/api/producto-materiales/${id}`,
   },
 };
 
