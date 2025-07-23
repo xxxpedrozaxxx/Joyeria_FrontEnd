@@ -71,7 +71,12 @@ const CartPage = () => {
             <span className="font-bold text-lg">Total:</span>
             <span className="text-xl text-blue-600 font-bold">${total}</span>
           </div>
-          <button className="w-full bg-gray-800 text-white py-2 rounded font-semibold hover:bg-gray-900 transition">Proceder a pago</button>
+          <button
+            className="w-full bg-gray-800 text-white py-2 rounded font-semibold hover:bg-gray-900 transition"
+            onClick={() => window.location.href = '/checkout'}
+          >
+            Proceder a pago
+          </button>
         </div>
       )}
     </section>
