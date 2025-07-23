@@ -5,18 +5,15 @@ import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import RegisterPage from './pages/RegisterPage';
+import AppRoutes from './routes';
 
 function App() {
   return (
     <Router>
       <Header />
       <main className="min-h-screen bg-gray-50">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/productos" element={<ProductListPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/carrito" element={<CartPage />} />
-        </Routes>
+       <AppRoutes />
       </main>
       <Footer />
     </Router>

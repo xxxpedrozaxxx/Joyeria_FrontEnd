@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, ReactNode, useEffect } from 'react';
 import { Product } from '../types/Product';
 
-interface CartItem extends Product {}
+export interface CartItem extends Product {}
 
 interface CartState {
   cartItems: CartItem[];
