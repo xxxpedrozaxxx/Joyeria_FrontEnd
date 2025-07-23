@@ -56,10 +56,6 @@ const CartPage = () => {
                 </div>
                 <div className="flex flex-col justify-center flex-1">
                   <h3 className="text-xl font-bold mb-1">{item.producto.nombre}</h3>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-yellow-400">★ ★ ★ ★ ☆</span>
-                    <span className="text-gray-500 text-sm">4 Estrellas</span>
-                  </div>
                   <div className="text-lg font-bold text-gray-800 mb-1">${parseFloat(item.producto.precio)}</div>
                   <div className="text-gray-600 mb-2">{item.producto.descripcion || 'Este producto es de la mejor calidad, y de mejor material. Compra con envío hasta la puerta de tu casa, y con garantía de devolución.'}</div>
                   <div className="flex items-center gap-2 mb-2">

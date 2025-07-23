@@ -1,6 +1,7 @@
 import { Product } from '../types/Product';
 // import { useCart } from '../context/CartContext';
 import { getCarritoByUsuario, addItemToCarrito } from '../services/carritoService';
+import Swal from 'sweetalert2';
 import { useUser } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +25,12 @@ const ProductCard = ({ product }: Props) => {
       const carritoId = data.id;
       // 2. Agregar el producto al carrito
       await addItemToCarrito(carritoId, { productoId: product.id, cantidad: 1 });
-      // 3. Redirigir al carrito
+      // 3. Mostrar alerta y redirigir al carrito
+      await Swal.fire({
+        icon: 'success',
+        title: '¡Agregado al carrito!',
+        text: 'El producto ha sido agregado correctamente a tu carrito.',
+      });
       navigate('/carrito');
     } catch (err) {
       // Manejo de error opcional

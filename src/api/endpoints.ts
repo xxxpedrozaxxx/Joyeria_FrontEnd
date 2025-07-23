@@ -1,4 +1,10 @@
 const endpoints = {
+  newslatter: {
+    base: '/api/newslatter',
+  },
+  contacto: {
+    base: '/api/contacto',
+  },
   usuarios: {
     base: '/api/usuarios',
     login: '/api/usuarios/login',

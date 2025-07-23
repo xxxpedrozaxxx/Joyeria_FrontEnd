@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getProductos } from '../services/productoService';
+import { suscribirNewslatter } from '../services/newslatterService';
+import Swal from 'sweetalert2';
 
 const LandingPage = () => {
   const [topProducts, setTopProducts] = useState<any[]>([]);
@@ -21,6 +23,31 @@ const LandingPage = () => {
     };
     fetchProducts();
   }, []);
+
+  const [correoNewsletter, setCorreoNewsletter] = useState('');
+  const [loadingNewsletter, setLoadingNewsletter] = useState(false);
+
+  const handleNewsletter = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoadingNewsletter(true);
+    try {
+      const res = await suscribirNewslatter({ correo: correoNewsletter });
+      if (res.status === 200) {
+        Swal.fire({
+          icon: 'success',
+          title: '¡Suscripción exitosa!',
+          text: 'Te has suscrito a la newsletter. Próximamente recibirás la newsletter semanal en tu correo.',
+        });
+        setCorreoNewsletter('');
+      } else {
+        Swal.fire({ icon: 'error', title: 'Error', text: 'No se pudo suscribir al newsletter.' });
+      }
+    } catch (err: any) {
+      Swal.fire({ icon: 'error', title: 'Error', text: err?.response?.data?.message || 'Error al suscribirse.' });
+    } finally {
+      setLoadingNewsletter(false);
+    }
+  };
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -60,9 +87,23 @@ const LandingPage = () => {
             <div className="font-bold mb-1">Newsletter</div>
             <div className="text-gray-500 text-sm">Suscríbete a todas nuestras notificaciones y promociones.<br />Puedes cancelar en cualquier momento tu suscripción.</div>
           </div>
-          <form className="flex mt-4 md:mt-0">
-            <input type="email" placeholder="Correo Electrónico" className="border rounded-l px-4 py-2 focus:outline-none" />
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-r font-semibold hover:bg-blue-700 transition">Suscribirme</button>
+          <form className="flex mt-4 md:mt-0" onSubmit={handleNewsletter}>
+            <input
+              type="email"
+              placeholder="Correo Electrónico"
+              className="border rounded-l px-4 py-2 focus:outline-none"
+              required
+              value={correoNewsletter}
+              onChange={e => setCorreoNewsletter(e.target.value)}
+              disabled={loadingNewsletter}
+            />
+            <button
+              className="bg-blue-600 text-white px-4 py-2 rounded-r font-semibold hover:bg-blue-700 transition"
+              disabled={loadingNewsletter}
+              type="submit"
+            >
+              {loadingNewsletter ? 'Enviando...' : 'Suscribirme'}
+            </button>
           </form>
         </section>
       </main>
