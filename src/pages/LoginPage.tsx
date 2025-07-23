@@ -21,6 +21,7 @@ const LoginPage = () => {
       const response = await loginUsuario({ email: username, password });
       if (response.status === 200) {
         setError('');
+        login(response.data); // Actualiza el contexto global de usuario
         window.location.href = '/';
       } else {
         setError('Credenciales incorrectas');

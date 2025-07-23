@@ -1,18 +1,21 @@
 import ProductCard from '../components/ProductCard';
 import { useEffect, useState } from 'react';
 import { Product } from '../types/Product';
+import { getProductos } from '../services/productoService';
 
 const ProductListPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // Aquí deberías llamar a tu backend para obtener productos
-    // Ejemplo mock:
-    setProducts([
-      { id: '1', name: 'Anillo de oro', price: 120, image: '/assets/anillo.jpg' },
-      { id: '2', name: 'Collar de plata', price: 80, image: '/assets/collar.jpg' },
-      { id: '3', name: 'Pulsera elegante', price: 60, image: '/assets/pulsera.jpg' },
-    ]);
+    const fetchProducts = async () => {
+      try {
+        const response = await getProductos();
+        setProducts(response.data);
+      } catch (error) {
+        setProducts([]);
+      }
+    };
+    fetchProducts();
   }, []);
 
   return (
